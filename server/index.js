@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import usersRoutes from "../routes/users.js";
+import databaseConnection from "../database/config.js";
 
 class Server {
   constructor() {
@@ -9,9 +10,14 @@ class Server {
       users: "/api/users",
     };
 
+    this.connectDatabase();
     this.middlewares();
     this.listenPort();
     this.router();
+  }
+
+  async connectDatabase() {
+    await databaseConnection();
   }
 
   middlewares() {
