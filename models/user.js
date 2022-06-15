@@ -21,11 +21,9 @@ const userSchema = Schema({
   },
   role: {
     type: String,
-    required: [true, 'the "role" field is required'],
+    default: "USER_BASIC",
   },
-  profilePicture: {
-    type: String,
-  },
+  profilePicture: String,
   status: {
     type: Boolean,
     default: true,
